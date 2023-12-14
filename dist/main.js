@@ -20,13 +20,33 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 
 /***/ }),
 
+/***/ "./src/modules/home.js":
+/*!*****************************!*\
+  !*** ./src/modules/home.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst homeComponent = () => {\n  const homeContainer = document.createElement('div');\n  homeContainer.id = 'home-container';\n\n  const welcomeMsg = document.createElement('h2');\n  welcomeMsg.textContent = 'Welcome to the Resto';\n\n  const paragraph = document.createElement('p');\n  paragraph.textContent = 'This is the best restaurant in the world!';\n\n  homeContainer.append(welcomeMsg, paragraph);\n  return homeContainer;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (homeComponent);\n\n\n//# sourceURL=webpack://restaurant-page/./src/modules/home.js?");
+
+/***/ }),
+
+/***/ "./src/modules/menu.js":
+/*!*****************************!*\
+  !*** ./src/modules/menu.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst createMenuItem = (itemName) => {\n  const menuItemDiv = document.createElement('div');\n  const name = document.createElement('h3');\n  name.textContent = itemName;\n\n  const description = document.createElement('p');\n  description.textContent =\n    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';\n  const price = document.createElement('p');\n  price.textContent = '$5.00';\n  const image = document.createElement('div');\n  image.style.height = '180px';\n  image.style.width = '180px';\n  image.style.backgroundColor = 'gray';\n  image.classList.add('mock-image');\n\n  menuItemDiv.append(name, price, image, description);\n  return menuItemDiv;\n};\n\nconst menuComponent = () => {\n  const menuContainer = document.createElement('div');\n  const menuItems = [1, 2, 3, 4, 5, 6, 7, 8];\n\n  menuItems.forEach((item) => {\n    menuContainer.appendChild(createMenuItem(`Menu Item ${item}`));\n  });\n  return menuContainer;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menuComponent);\n\n\n//# sourceURL=webpack://restaurant-page/./src/modules/menu.js?");
+
+/***/ }),
+
 /***/ "./src/modules/website.js":
 /*!********************************!*\
   !*** ./src/modules/website.js ***!
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst headerComponent = () => {\n  const header = document.createElement('header');\n  const restaurantName = document.createElement('h1');\n  restaurantName.textContent = 'Resto';\n\n  header.appendChild(restaurantName);\n  header.appendChild(navbarComponent());\n\n  return header;\n};\n\nconst navbarComponent = () => {\n  const navBar = document.createElement('nav');\n\n  const homeButton = document.createElement('button');\n  homeButton.textContent = 'Home';\n\n  const menuButton = document.createElement('button');\n  menuButton.textContent = 'Menu';\n\n  const contactButton = document.createElement('button');\n  contactButton.textContent = 'Contact Us';\n\n  navBar.append(homeButton, menuButton, contactButton);\n\n  return navBar;\n};\n\nconst mainComponent = () => {};\n\nconst footerComponent = () => {};\n\nconst init = () => {\n  const content = document.getElementById('content');\n\n  content.appendChild(headerComponent());\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (init);\n\n\n//# sourceURL=webpack://restaurant-page/./src/modules/website.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _home_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home.js */ \"./src/modules/home.js\");\n/* harmony import */ var _menu_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menu.js */ \"./src/modules/menu.js\");\n\n\n\nconst headerComponent = () => {\n  const header = document.createElement('header');\n  const restaurantName = document.createElement('h1');\n  restaurantName.textContent = 'Resto';\n\n  header.appendChild(restaurantName);\n  header.appendChild(navbarComponent());\n\n  return header;\n};\n\nconst navbarComponent = () => {\n  const navBar = document.createElement('nav');\n\n  const homeButton = document.createElement('button');\n  homeButton.textContent = 'Home';\n  homeButton.addEventListener('click', () => {\n    mainComponent((0,_home_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])());\n  });\n\n  const menuButton = document.createElement('button');\n  menuButton.textContent = 'Menu';\n  menuButton.addEventListener('click', () => {\n    mainComponent((0,_menu_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])());\n  });\n\n  const contactButton = document.createElement('button');\n  contactButton.textContent = 'Contact Us';\n\n  navBar.append(homeButton, menuButton, contactButton);\n\n  return navBar;\n};\n\nconst mainComponent = (component) => {\n  const main = document.querySelector('main');\n  main.innerHTML = '';\n  main.appendChild(component);\n};\n\nconst footerComponent = () => {};\n\nconst init = () => {\n  const content = document.querySelector('#content');\n  const main = document.createElement('main');\n  const footer = document.createElement('footer');\n\n  content.append(headerComponent(), main, footer);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (init);\n\n\n//# sourceURL=webpack://restaurant-page/./src/modules/website.js?");
 
 /***/ })
 

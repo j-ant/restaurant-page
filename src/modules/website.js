@@ -1,3 +1,6 @@
+import homeComponent from './home.js';
+import menuComponent from './menu.js';
+
 const headerComponent = () => {
   const header = document.createElement('header');
   const restaurantName = document.createElement('h1');
@@ -14,9 +17,15 @@ const navbarComponent = () => {
 
   const homeButton = document.createElement('button');
   homeButton.textContent = 'Home';
+  homeButton.addEventListener('click', () => {
+    mainComponent(homeComponent());
+  });
 
   const menuButton = document.createElement('button');
   menuButton.textContent = 'Menu';
+  menuButton.addEventListener('click', () => {
+    mainComponent(menuComponent());
+  });
 
   const contactButton = document.createElement('button');
   contactButton.textContent = 'Contact Us';
@@ -26,14 +35,20 @@ const navbarComponent = () => {
   return navBar;
 };
 
-const mainComponent = () => {};
+const mainComponent = (component) => {
+  const main = document.querySelector('main');
+  main.innerHTML = '';
+  main.appendChild(component);
+};
 
 const footerComponent = () => {};
 
 const init = () => {
-  const content = document.getElementById('content');
+  const content = document.querySelector('#content');
+  const main = document.createElement('main');
+  const footer = document.createElement('footer');
 
-  content.appendChild(headerComponent());
+  content.append(headerComponent(), main, footer);
 };
 
 export default init;
